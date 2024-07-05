@@ -12,7 +12,7 @@ export default function useUpdateRow(data: IDataRow) {
     mutationKey: ["update row"],
     mutationFn: (formData: FormData) => {
       return axios
-        .post(`//185.244.172.108:8081/v1/outlay-rows/entity/133771/row/${data.id}/update`, formDataToJson(formData))
+        .post(`http://185.244.172.108:8081/v1/outlay-rows/entity/133771/row/${data.id}/update`, formDataToJson(formData))
         .then((res) => res.data.current as IDataRow)
     },
     onSuccess(data) {

@@ -13,7 +13,7 @@ export default function useAddRow(parentId: any) {
     mutationFn: (formData: FormData) => {
       const data = formDataToJson(formData)
       return axios
-        .post('//185.244.172.108:8081/v1/outlay-rows/entity/133771/row/create', data)
+        .post('http://185.244.172.108:8081/v1/outlay-rows/entity/133771/row/create', data)
         .then((res) => { return res.data.current as IDataRow })
     },
     onSuccess: (data) => {

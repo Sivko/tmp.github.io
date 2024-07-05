@@ -8,7 +8,7 @@ export function useRows() {
     queryKey: ['rows'],
     queryFn: () =>
       axios
-        .get('//185.244.172.108:8081/v1/outlay-rows/entity/133771/row/list')
+        .get('http://185.244.172.108:8081/v1/outlay-rows/entity/133771/row/list')
         .then((res) => { return res.data as IDataRow[] }),
   })
 
