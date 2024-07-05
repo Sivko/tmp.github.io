@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { IoAppsSharp } from "react-icons/io5";
+import { IoArrowUndo } from "react-icons/io5";
+import Aside from "./Aside";
+import Main from "./Main";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="text-secondary min-h-[100dvh]">
+      <header className="flex gap-4 border border-background border-b-secondary px-4" >
+        <button><IoAppsSharp /></button>
+        <button><IoArrowUndo /></button>
+        <button className="active">Просмотр</button>
+        <button>Управление</button>
       </header>
+      <div className="flex min-h-[calc(100dvh-42px)]">
+        <Aside />
+        <Main />
+      </div>
     </div>
   );
 }

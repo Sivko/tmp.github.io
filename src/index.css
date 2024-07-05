@@ -1,13 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-background
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  @apply py-2 text-secondary
+}
+
+button:hover {
+  @apply text-white transition-all
+}
+
+.active {
+  @apply relative text-white
+}
+
+.active::after {
+  content: "";
+  @apply left-0 right-0 bg-white h-[2px] absolute bottom-0
+}
+
+table tr {
+  @apply border-b border-b-secondary
+}
+
+table td {
+  @apply px-3 py-2
+}
+
+table input {
+  @apply bg-inherit border border-[#6d6d6d] focus:border-secondary rounded p-1 outline-none w-full transition-all
+}
+
+.afterLine {
+  @apply absolute left-0 bottom-0
+}
+
+.afterLine::after {
+  content: "";
+  @apply absolute left-[-3px] h-[100%] w-[1px] bg-white bottom-[33px]
+}
+
+.afterLine::before {
+  content: "";
+  @apply absolute left-[-3px] h-[1px] w-[20px] bg-white bottom-[33px]
+}
+
+@layer base {
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
