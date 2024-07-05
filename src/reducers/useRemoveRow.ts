@@ -11,7 +11,7 @@ export default function useRemoveRow(data: IDataRow) {
     mutationKey: ["rows remove"],
     mutationFn: () => {
       return axios
-        .delete(`http://185.244.172.108:8081/v1/outlay-rows/entity/133771/row/${data.id}/delete`)
+        .delete(`//185.244.172.108:8081/v1/outlay-rows/entity/133771/row/${data.id}/delete`)
         .then((res) => { return res.data })
     },
     onSuccess() {
