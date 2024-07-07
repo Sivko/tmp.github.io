@@ -6,7 +6,6 @@ import { IRow } from "src/types/IRow";
 import { FaRegTrashAlt } from "react-icons/fa"
 import { MdFormatListBulletedAdd } from "react-icons/md";
 
-import hasBeforeNewRow from "src/helpers/hasBeforeNewRow";
 import countChildren from "src/helpers/countChildren";
 
 import useRemoveRow from "src/reducers/useRemoveRow";
@@ -24,9 +23,8 @@ export default function RowItem(data: IRow) {
 
   const isEdit = (idRowEdit === index);
   const ml = level > 1 ? { marginLeft: `${(level - 1) * 33}px` } : {}
-  const addHeightAfterNewRow = hasBeforeNewRow(afterNewRow.index, index)
-  const countChild = beforeItems?.length ? countChildren(beforeItems[beforeItems?.length - 1], beforeItems[beforeItems?.length - 1].child?.length ? 1 : 0) : 0
-  const heigth = countChild ? (countChild + addHeightAfterNewRow) * 70 : 70 + (70 * addHeightAfterNewRow)
+  const countChild = beforeItems?.length ? countChildren(beforeItems[beforeItems?.length - 1], 1, afterNewRow.id) : 0
+  const heigth = countChild ? (countChild) * 70 : 70
 
   return (
     <tr onDoubleClick={handlerDbClick}>
@@ -43,6 +41,7 @@ export default function RowItem(data: IRow) {
           </div>
         </div>
       </td>
+      <td>{countChild}</td>
       <td>{isEdit ? <input type="text" defaultValue={data.rowName} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="rowName" /> : data.rowName} </td>
       <td>{isEdit ? <input type="number" defaultValue={data.salary} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="salary" /> : data.salary}</td>
       <td>{isEdit ? <input type="number" defaultValue={data.materials} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="materials" /> : data.materials}</td>

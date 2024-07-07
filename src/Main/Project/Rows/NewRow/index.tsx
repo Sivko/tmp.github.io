@@ -9,11 +9,11 @@ import useAddRow from "src/reducers/useAddRow";
 export default function NewRow(data: IRow | any) {
   let level, heigth
   level = data.level
-  heigth = countChildren(data) * 70 || 70
 
   const htmlForm = useRef<HTMLFormElement>(null)
 
   const { setAfterNewRow, afterNewRow } = useContext(Context)
+  heigth = countChildren(data, 0, afterNewRow.id) * 70 || 70
 
   const ml = level > 1 ? { marginLeft: `${(level - 1) * 33}px` } : {}
   const parentId = afterNewRow.id && afterNewRow.id !== -1 ? afterNewRow.id : "null"
