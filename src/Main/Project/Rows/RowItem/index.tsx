@@ -41,7 +41,6 @@ export default function RowItem(data: IRow) {
           </div>
         </div>
       </td>
-      <td>{countChild}</td>
       <td>{isEdit ? <input type="text" defaultValue={data.rowName} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="rowName" /> : data.rowName} </td>
       <td>{isEdit ? <input type="number" defaultValue={data.salary} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="salary" /> : data.salary}</td>
       <td>{isEdit ? <input type="number" defaultValue={data.materials} onKeyUp={handlerKeyEnter} required form={`form_${index}`} name="materials" /> : data.materials}</td>
